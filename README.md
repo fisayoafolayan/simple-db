@@ -13,7 +13,7 @@ maven {
             url "http://dl.bintray.com/shalvah/maven"
         }
  ```
-(Apologies, the library isn't yet available on jcenter.)
+(Apologies, the library isn't available on jcenter yet.)
 
 * Step 1: Create a class extending the `SimpleContentProvider`. This is your app's ContentProvider. Define constants representing your provider, database, table and column names (recommended, but not required)
 ```
@@ -155,7 +155,7 @@ If your app's database needs are more complex, you may override other methods in
 * Migrations: Currently, you have to manually increments the databse version if you change your schema.
 
 ## Contributing
-All contributions are welcome! Starting with improvements to this doc! Correcting typos and feature additions equally welcome. You could also work on one of the "Future Features" above. 
+All contributions are welcome! Starting with improvements to this README! Correcting typos and feature additions equally welcome. You could also work on one of the "Future Features" above. 
 If you discover an issue and don't have time to fix it, please add it in the issue tracker. Thanks!
 Please see the contribution guide
 
