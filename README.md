@@ -3,8 +3,17 @@ Simpledb is an Android library that simplifies the process of working with SQLit
 
 Simpledb is designed for apps which have relatively simple database needs.
 ## Setup
-* Step 0: Add the dependency to your app's `build.gradle`
-```compile 'me.shalvah.simpledb:simple-db:0.5.0'```
+* Step 0: Add the dependency to the `build.gradle`file of your `app` module.
+```
+compile 'me.shalvah.simpledb:simple-db:0.5.0'
+```
+Also add the following in the `allprojects.repositories` block (usually located near the bottom) of the global `build.gradle` ie your _project's_  file:
+```
+maven {
+            url "http://dl.bintray.com/shalvah/maven"
+        }
+ ```
+(Apologies, the library isn't yet available on jcenter.)
 
 * Step 1: Create a class extending the `SimpleContentProvider`. This is your app's ContentProvider. Define constants representing your provider, database, table and column names (recommended, but not required)
 ```
