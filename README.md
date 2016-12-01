@@ -4,7 +4,7 @@
 
 SimpleDB is an Android library that simplifies the process of working with SQLite databases. It allows you to get your app up and running with a functional SQLite database without you worrying about the internals. Now all you need to do is define your schema, and the library handles the rest!
 
-SimpleDB ~is designed for~ has been tested only on apps which have relatively simple database needs.
+SimpleDB ~~is designed for~~ has been tested only on apps which have relatively simple database needs.
 ## Setup
 * Step 0: Add the dependency to the `build.gradle`file of your `app` module.
 ```
