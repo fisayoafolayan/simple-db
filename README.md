@@ -2,7 +2,7 @@
 
 [![Download](https://api.bintray.com/packages/shalvah/maven/simple-db/images/download.svg) ](https://bintray.com/shalvah/maven/simple-db/_latestVersion)
 
-SimpleDB is an Android library that simplifies the process of working with SQLite databases. It allows you to get your app up and running with a functional SQLite database without you worrying about the internals. Now all you need to do is define your schema, and the library handles the rest!
+SimpleDB is an Android library that makes working with SQLite databases reaaaally simple. It allows you to get your app up and running with a functional SQLite database within minutes (true) without you worrying about the internals. Now all you need to do is define your schema, and the library handles the rest!
 
 SimpleDB ~~is designed for~~ has been tested only on apps which have relatively simple database needs.
 ## Setup
