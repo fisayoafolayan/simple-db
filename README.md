@@ -1,10 +1,10 @@
-# simple-db
+# SimpleDB
 
 [![Download](https://api.bintray.com/packages/shalvah/maven/simple-db/images/download.svg) ](https://bintray.com/shalvah/maven/simple-db/_latestVersion)
 
-Simpledb is an Android library that simplifies the process of working with SQLite databases. It allows you to get your app up and running with a functional SQLite database without you worrying about the internals. Now all you need to do is define your schema, and the library handles the rest!
+SimpleDB is an Android library that simplifies the process of working with SQLite databases. It allows you to get your app up and running with a functional SQLite database without you worrying about the internals. Now all you need to do is define your schema, and the library handles the rest!
 
-Simpledb is designed for apps which have relatively simple database needs.
+SimpleDB ~is designed for~ has been tested only on apps which have relatively simple database needs.
 ## Setup
 * Step 0: Add the dependency to the `build.gradle`file of your `app` module.
 ```
@@ -14,7 +14,7 @@ Also add the following in the `allprojects.repositories` block (usually located 
 ```
 maven {
             url "http://dl.bintray.com/shalvah/maven"
-        }
+             }
  ```
 (Apologies, the library isn't available on jcenter yet.)
 
@@ -39,7 +39,7 @@ public class MySimpleContentProvider extends SimpleContentProvider
 
 }
 ```
-Note that there is a hidden `COLUMN_ID` inherited from `SimpleContentProvider` set to `_id`. By default, Simpledb adds this column to each table in your database, so you do not need to define that.
+Note that there is a hidden `COLUMN_ID` inherited from `SimpleContentProvider` set to `_id`. By default, SimpleDB adds this column to each table in your database, so you do not need to define that.
 
 * Step 2: Implement the `setup()` function in your SimpleContentProvider. This is where you define your database schema.
 
@@ -54,11 +54,11 @@ public void setup()
  Table producers = new Table(TABLE_PRODUCERS, producerName, producerAge);
 
  Column itemName = Column.Text(COLUMN_ITEMS_NAME).unique();
- Column itemTypee = Column.Text(COLUMN_ITEMS_TYPE);
+ Column itemType = Column.Text(COLUMN_ITEMS_TYPE);
  Column itemPrice = Column.Integer(COLUMN_ITEMS_PRICE).notNull();
  Column itemProducedBy = Column.Integer(COLUMN_ITEMS_PRODUCED_BY).foreignKey(TABLE_PRODUCERS, COLUMN_ID);
 
- Table items = new Table(TABLE_COURSES, itemName, itemType, itemPrice, itemProducedBy);
+ Table items = new Table(TABLE_ITEMS, itemName, itemType, itemPrice, itemProducedBy);
 
  init(PROVIDER_NAME, DB_NAME, DB_VERSION, producers, items);
 }
