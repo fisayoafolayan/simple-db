@@ -10,14 +10,6 @@ SimpleDB ~~is designed for~~ has been tested only on apps which have relatively 
 ```
 compile 'me.shalvah.simpledb:simple-db:0.5.0'
 ```
-Also add the following in the `allprojects.repositories` block (usually located near the bottom) of the global `build.gradle` ie your _project's_  file:
-```
-maven {
-            url "http://dl.bintray.com/shalvah/maven"
-             }
- ```
-(Apologies, the library isn't available on jcenter yet.)
-
 * Step 1: Create a class extending the `SimpleContentProvider`. This is your app's ContentProvider. Define constants representing your provider, database, table and column names (recommended, but not required)
 ```
 public class MySimpleContentProvider extends SimpleContentProvider
@@ -151,17 +143,17 @@ A simple test app using the library can be found [here] (https://github.com/Shal
 If your app's database needs are more complex, you may override other methods in the `SimpleContentProvider` class as needed (for instance, if you need to define a custom `sortOrder`. Future updates may provide a simpler interface for you to do this.) 
 
 ## Features
-* Foreign key support. Simpledb also automatically sets an fk column to be on-null if referencing an "_id" column; otherwise, you'll have to do that yourself or risk getting an SQL error
-* Content URIs: Simpledb automatically generates these. 
+* Foreign key support. SimpleDB also automatically sets a foreign key column to be non-null if referencing an "_id" column; otherwise, you'll have to do that yourself or risk getting an SQL error
+* Content URIs: SimpleDB automatically generates these. 
 
 ## Future features :)
-* Migrations: Currently, you have to manually increments the databse version if you change your schema.
+* Schema changes: Currently, you have to manually increment the databse version if you change your schema.
 
 ## Contributing
 All contributions are welcome! Starting with improvements to this README! Correcting typos and feature additions equally welcome. You could also work on one of the "Future Features" above. 
 If you discover an issue and don't have time to fix it, please add it in the issue tracker. Thanks!
 Please see the contribution guide
 
-Thanks for checking out Simpledb! I hope it does make your work simpler.
+Thanks for checking out SimpleDB! I hope it does make your work simpler.
 Please star if you find it useful! Thanks!
 
