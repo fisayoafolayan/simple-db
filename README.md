@@ -1,7 +1,8 @@
+# simple-db
 Simpledb is an Android library that simplifies the process of working with SQLite databases. It allows you to get your app up and running with a functional SQLite database without you worrying about the internals. Now all you need to do is define your schema, and the library handles the rest!
 
-Simpledb is designed for apps which have relatively simple databse needs.
-# Setup
+Simpledb is designed for apps which have relatively simple database needs.
+## Setup
 * Step 0: Add the dependency to your app's `build.gradle`
 ```compile 'me.shalvah.simpledb:simple-db:0.5.0'```
 
@@ -30,7 +31,8 @@ Note that there is a hidden `COLUMN_ID` inherited from `SimpleContentProvider` s
 
 * Step 2: Implement the `setup()` function in your SimpleContentProvider. This is where you define your database schema.
 
-```public void setup()
+```
+public void setup()
 {
  //create columns
  Column producerName = Column.Text(COLUMN_PRODUCERS_NAME);
@@ -42,7 +44,7 @@ Note that there is a hidden `COLUMN_ID` inherited from `SimpleContentProvider` s
  Column itemName = Column.Text(COLUMN_ITEMS_NAME).unique();
  Column itemTypee = Column.Text(COLUMN_ITEMS_TYPE);
  Column itemPrice = Column.Integer(COLUMN_ITEMS_PRICE).notNull();
-Column itemProducedBy = Column.Integer(COLUMN_ITEMS_PRODUCED_BY).foreignKey(TABLE_PRODUCERS, COLUMN_ID);
+ Column itemProducedBy = Column.Integer(COLUMN_ITEMS_PRODUCED_BY).foreignKey(TABLE_PRODUCERS, COLUMN_ID);
 
  Table items = new Table(TABLE_COURSES, itemName, itemType, itemPrice, itemProducedBy);
 
@@ -54,35 +56,39 @@ Also, if a table has a column which is a foreign key to another, make sure you a
 
 * Step 3: You're good to go! Use the class you created as your ContentPovider.
 
-# Quickstart
-## Creating colums
-```Column.Integer(columnName);
+## Quickstart
+### Creating colums
+```
+Column.Integer(columnName);
 Column.Text(columnName);
 Column.Real(columnName);
 Column.Blob(columnName);
 ```
 These methods all return Column objects, so you can chain the methods below to set additional properties
 
-## Setting column properties
+### Setting column properties
 If `col` is a `Column` object:
-```col.notNull();
+```
+col.notNull();
 col.unique();
 col.autoIncrement();
 col.foreignKey(referencesTableName, referencesColumnName);
 ```
 Again, these methods all return Column objects, so you can chain them to set additional properties
 
-## Creating a Table
-```Table t=new Table(tableName, col1, col2, col3, ...);
+### Creating a Table
+```
+Table t=new Table(tableName, col1, col2, col3, ...);
 
 Column[] cols=new Column[] {col1, col2, col3, ...};
 Table t=new Table(tableName, cols);```
 ```
 
-## CRUD
-```//insert a new item
-* getContentResolver().insert(TestSimpleContentProvider.contentUri(tableName), values);
-* 
+### CRUD
+```
+//insert a new item
+getContentResolver().insert(TestSimpleContentProvider.contentUri(tableName), values);
+
 //delete all items
 getContentResolver().delete(MySimpleContentProvider.contentUri("tableName"), null, null);
 
@@ -93,9 +99,10 @@ getContentResolver().delete(MySimpleContentProvider.contentUri
                         null);
 ```
 
-## Using with a CursorLoader
+### Using with a CursorLoader
 Loading data:
-```private void fillData()
+```
+private void fillData()
         {
             getLoaderManager().initLoader(0, null, this);
 
@@ -111,7 +118,8 @@ Loading data:
 ```
 
 Callbacks:
-```@Override
+```
+@Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args)
         {
             String[] projection = new String[]{TestSimpleContentProvider.COLUMN_ID,
@@ -127,17 +135,17 @@ Callbacks:
 
 A simple test app using the library can be found [here] (https://github.com/Shalvah/dbtest).
 
-# More complex databases
+## More complex databases
 If your app's database needs are more complex, you may override other methods in the `SimpleContentProvider` class as needed (for instance, if you need to define a custom `sortOrder`. Future updates may provide a simpler interface for you to do this.) 
 
-# Features
+## Features
 * Foreign key support. Simpledb also automatically sets an fk column to be on-null if referencing an "_id" column; otherwise, you'll have to do that yourself or risk getting an SQL error
 * Content URIs: Simpledb automatically generates these. 
 
-# Future features :)
+## Future features :)
 * Migrations: Currently, you have to manually increments the databse version if you change your schema.
 
-# Contributing
+## Contributing
 All contributions are welcome! Starting with improvements to this doc! Correcting typos and feature additions equally welcome. You could also work on one of the "Future Features" above. 
 If you discover an issue and don't have time to fix it, please add it in the issue tracker. Thanks!
 Please see the contribution guide
